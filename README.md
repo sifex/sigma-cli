@@ -1,12 +1,24 @@
-# Sigma CLI
+<a href="https://github.com/SigmaHQ/">
+<center>
+<img src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_dark.png#gh-dark-mode-only" height="124" alt="">
+<img src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_light.png#gh-light-mode-only" height="124" alt="">
+</center>
+</a>
 
-![Sigma Official](https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/Sigma%20Official%20Badge.svg)
-![Tests](https://github.com/SigmaHQ/sigma-cli/actions/workflows/test.yml/badge.svg)
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/thomaspatzke/0c868df261d4a5d5a1dafe71b1557d69/raw/SigmaHQ-sigma-cli.json)
-![Status](https://img.shields.io/badge/Status-pre--release-orange)
+<center>
+<br />
+<img src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/Sigma%20Official%20Badge.svg" alt="Sigma Official" />
+<img src="https://github.com/SigmaHQ/sigma-cli/actions/workflows/test.yml/badge.svg" alt="Tests" />
+<img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/thomaspatzke/0c868df261d4a5d5a1dafe71b1557d69/raw/SigmaHQ-sigma-cli.json" alt="Coverage Badge" />
+<img src="https://img.shields.io/badge/Status-pre--release-orange" alt="Status" />
+</center>
 
-This is the Sigma command line interface using the [pySigma](https://github.com/SigmaHQ/pySigma) library to manage, list
-and convert Sigma rules into query languages.
+
+<p align="center">
+This is the Sigma command line interface using the <a href="https://github.com/SigmaHQ/pySigma">pySigma</a> library
+<br />
+to manage, list and convert Sigma rules into query languages.
+</p>
 
 ## Getting Started
 
@@ -18,12 +30,15 @@ The easiest way to install the Sigma CLI is via *pipx* or *pip*. For this purpos
 python -m pipx install sigma-cli
 python -m pip install sigma-cli
 ```
+
 on macOS use
+
 ```
 python3 -m pip install sigma-cli
 ```
 
-Another way is to run this from source in a virtual environment managed by [Poetry](https://python-poetry.org/docs/basic-usage/):
+Another way is to run this from source in a virtual environment managed
+by [Poetry](https://python-poetry.org/docs/basic-usage/):
 
 ```
 git clone https://github.com/SigmaHQ/sigma-cli.git
@@ -82,7 +97,8 @@ The dict key is the name used in the `-t` parameter.
 
 A processing pipeline is defined in the `pipelines` variable dict in `sigma/cli/pipelines.py`. The variable contains a
 `ProcessingPipelineResolver` that is instantiated with a dict that maps identifiers that can
-be used in the `-p` parameter to functions that return `ProcessingPipeline` objects. The descriptive text shown in the pipeline list (`sigma list pipelines`) is provided from
+be used in the `-p` parameter to functions that return `ProcessingPipeline` objects. The descriptive text shown in the
+pipeline list (`sigma list pipelines`) is provided from
 the `name` attribute of the `ProcessingPipeline` object.
 
 ## Maintainers
