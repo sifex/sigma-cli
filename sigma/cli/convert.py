@@ -1,11 +1,10 @@
-from genericpath import exists
 import json
 import pathlib
 import textwrap
-import click
 
+import click
+from functional import seq
 from sigma.conversion.base import Backend
-from sigma.collection import SigmaCollection
 from sigma.exceptions import SigmaError
 
 from sigma.cli.rules import load_rules
@@ -134,11 +133,16 @@ def convert(
 
     # Check if pipelines match to backend
     if pipeline_check:
-        wrong_pipelines = [
-            p
-            for p in pipeline
-            if not (pipelines[p].backends == () or target in pipelines[p].backends)
-        ]
+        wrong_pipelines = (
+            seq(pipeline)
+            .filter(
+                lambda p: not (
+                    pipelines[p].backends == () or target in pipelines[p].backends
+                )
+            )
+            .to_list()
+        )
+
         if len(wrong_pipelines) > 0:
             raise click.UsageError(
                 textwrap.dedent(
@@ -168,8 +172,8 @@ def convert(
         )
 
     try:
-        rule_collection = load_rules(input, file_pattern)
-        result = backend.convert(rule_collection, format)
+        result = backend.convert(load_rules(input, file_pattern), format)
+
         if isinstance(result, str):  # String result
             click.echo(bytes(result, encoding), output)
         elif isinstance(result, bytes):  # Bytes result: only allow to write it to file.
@@ -185,16 +189,12 @@ def convert(
             )
         ):
             click.echo(bytes("\n\n".join(result), encoding), output)
-        elif isinstance(result, list) and all(
-            (  # List of dicts: concatenate with newline and render each result als JSON.
-                isinstance(item, dict) for item in result
-            )
-        ):
+        elif isinstance(result, list) and seq(result).for_all(lambda item: isinstance(item, dict)):
             click.echo(
                 bytes(
-                    "\n".join(
-                        (json.dumps(item, indent=json_indent) for item in result)
-                    ),
+                    seq(result)
+                    .map(lambda item: json.dumps(item, indent=json_indent))
+                    .make_string("\n"),
                     encoding,
                 ),
                 output,

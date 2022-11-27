@@ -1,18 +1,19 @@
 from collections import namedtuple
-from sigma.pipelines.sysmon import sysmon_pipeline
+
 from sigma.pipelines.crowdstrike import crowdstrike_fdr_pipeline
-from sigma.pipelines.splunk import (
-    splunk_windows_pipeline,
-    splunk_windows_sysmon_acceleration_keywords,
-    splunk_cim_data_model,
-)
-from sigma.pipelines.windows import windows_pipeline
 from sigma.pipelines.elasticsearch.windows import ecs_windows, ecs_windows_old
 from sigma.pipelines.elasticsearch.zeek import (
     ecs_zeek_beats,
     ecs_zeek_corelight,
     zeek_raw,
 )
+from sigma.pipelines.splunk import (
+    splunk_windows_pipeline,
+    splunk_windows_sysmon_acceleration_keywords,
+    splunk_cim_data_model,
+)
+from sigma.pipelines.sysmon import sysmon_pipeline
+from sigma.pipelines.windows import windows_pipeline
 from sigma.processing.resolver import ProcessingPipelineResolver
 
 Pipeline = namedtuple("Pipeline", ("generator", "backends"))  # Describes a pipeline

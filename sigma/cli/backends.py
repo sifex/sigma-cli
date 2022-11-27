@@ -1,9 +1,10 @@
 from collections import namedtuple
-from sigma.backends.splunk import SplunkBackend
-from sigma.backends.insight_idr import InsightIDRBackend
-from sigma.backends.qradar import QradarBackend
+
 from sigma.backends.elasticsearch import LuceneBackend
+from sigma.backends.insight_idr import InsightIDRBackend
 from sigma.backends.opensearch import OpensearchLuceneBackend
+from sigma.backends.qradar import QradarBackend
+from sigma.backends.splunk import SplunkBackend
 
 Backend = namedtuple("Backend", ("cls", "text", "formats", "requires_pipeline"))
 

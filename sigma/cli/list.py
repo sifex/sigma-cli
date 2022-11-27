@@ -1,9 +1,11 @@
+from textwrap import dedent
+
 import click
+from prettytable import PrettyTable
+from sigma.validators import validators
+
 from .backends import backends
 from .pipelines import pipelines, pipeline_resolver
-from sigma.validators import validators
-from prettytable import PrettyTable
-from textwrap import dedent
 
 
 @click.group(name="list", help="List available targets or processing pipelines.")

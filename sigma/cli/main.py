@@ -1,8 +1,8 @@
-import imp
 import click
-from .list import list_group
-from .convert import convert
+
 from .check import check
+from .convert import convert
+from .list import list_group
 
 
 @click.group()

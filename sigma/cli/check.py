@@ -1,12 +1,13 @@
 import pathlib
-import click
 from collections import Counter
-from prettytable import PrettyTable
 
+import click
+from prettytable import PrettyTable
 from sigma.exceptions import SigmaConditionError, SigmaError
-from sigma.cli.rules import load_rules
 from sigma.validation import SigmaValidator
 from sigma.validators import validators
+
+from sigma.cli.rules import load_rules
 
 
 @click.command()
