@@ -30,7 +30,7 @@ to manage, list   and convert Sigma rules into query languages.
 The easiest way to install the `sigma-cli` is via *pip*. 
 
 ```bash
-pip3 isntall sigma-cli    # Install sigma-cli
+pip3 install sigma-cli    # Install sigma-cli
 ```
 
 #### From Source
