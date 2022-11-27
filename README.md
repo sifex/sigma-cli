@@ -1,5 +1,6 @@
 <a href="https://github.com/SigmaHQ/">
 <p align="center">
+<br />
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_dark.png#gh-dark-mode-only">
   <img height="124" alt="Sigma Logo" src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_light.png#gh-light-mode-only">
@@ -28,21 +29,21 @@ to manage, list   and convert Sigma rules into query languages.
 
 The easiest way to install the Sigma CLI is via *pipx* or *pip*. For this purpose run one of the following:
 
-```
+```bash
 python -m pipx install sigma-cli
 python -m pip install sigma-cli
 ```
 
 on macOS use
 
-```
+```bash
 python3 -m pip install sigma-cli
 ```
 
 Another way is to run this from source in a virtual environment managed
 by [Poetry](https://python-poetry.org/docs/basic-usage/):
 
-```
+```bash
 git clone https://github.com/SigmaHQ/sigma-cli.git
 cd sigma-cli
 poetry install
@@ -53,13 +54,13 @@ poetry shell
 
 The CLI is available as *sigma* command. A typical invocation is:
 
-```
+```bash
 sigma convert -t <backend> -p <processing pipeline 1> -p <processing pipeline 2> [...] <directory or file>
 ```
 
 E.g. to convert process creation Sigma rules from a directory into Splunk queries for Sysmon logs run:
 
-```
+```bash
 sigma convert -t splunk -p sysmon sigma/rules/windows/process_creation
 ```
 
@@ -73,7 +74,7 @@ In addition, an output file can be specified with `-o`.
 
 Example for output formats and files:
 
-```
+```bash
 sigma convert -t splunk -f savedsearches -p sysmon -o savedsearches.conf sigma/rules/windows/process_creation
 ```
 
@@ -83,7 +84,7 @@ Outputs a Splunk savedsearches.conf containing the converted searches.
 
 Backends and pipelines can be integrated by adding the corresponding packages as dependency with:
 
-```
+```bash
 poetry add <package name>
 ```
 
