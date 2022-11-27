@@ -32,10 +32,12 @@ pysigma-pipeline-windows = "^1.0.1"
 pysigma-backend-qradar = "^0.2.1"
 pysigma-backend-elasticsearch = "^0.1.0"
 pysigma-backend-opensearch = "^0.1.0"
+pyfunctional = "^1.4.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"
 pytest-cov = "^2.11.1"
+black = "^22.10.0"
 
 [tool.poetry.scripts]
 sigma = "sigma.cli.main:main"
