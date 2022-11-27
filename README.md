@@ -27,38 +27,35 @@ to manage, list   and convert Sigma rules into query languages.
 
 ### Installation
 
-The easiest way to install the Sigma CLI is via *pipx* or *pip*. For this purpose run one of the following:
+The easiest way to install the `sigma-cli` is via *pip*. 
 
 ```bash
-python -m pipx install sigma-cli
-python -m pip install sigma-cli
+pip3 isntall sigma-cli    # Install sigma-cli
 ```
 
-on macOS use
+#### From Source
+
+If you want to download and install `sigma-cli` from source, first install [Poetry](https://python-poetry.org/docs/basic-usage/), then run the following:
 
 ```bash
-python3 -m pip install sigma-cli
-```
-
-Another way is to run this from source in a virtual environment managed
-by [Poetry](https://python-poetry.org/docs/basic-usage/):
-
-```bash
-git clone https://github.com/SigmaHQ/sigma-cli.git
-cd sigma-cli
-poetry install
-poetry shell
+git clone https://github.com/SigmaHQ/sigma-cli.git && cd sigma-cli
+poetry install && poetry shell
 ```
 
 ### Usage
 
-The CLI is available as *sigma* command. A typical invocation is:
+We'll use the `sigma convert` command to start converting Sigma rules from their `.yml` file, into our desired SIEM format.
+
+The CLI is available as `sigma` command.
 
 ```bash
-sigma convert -t <backend> -p <processing pipeline 1> -p <processing pipeline 2> [...] <directory or file>
+sigma convert -t <backend> \
+    -p <processing pipeline 1> \
+    -p <processing pipeline X> \
+    <directory or file of Sigma rules>
 ```
 
-E.g. to convert process creation Sigma rules from a directory into Splunk queries for Sysmon logs run:
+For example, to use `sigma-cli` to convert "process creation" Sigma rules into Splunk queries for Sysmon logs, we can run:
 
 ```bash
 sigma convert -t splunk -p sysmon sigma/rules/windows/process_creation
