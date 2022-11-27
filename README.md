@@ -1,7 +1,9 @@
 <a href="https://github.com/SigmaHQ/">
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_dark.png#gh-dark-mode-only" height="124" alt="">
-<img src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_light.png#gh-light-mode-only" height="124" alt="">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_dark.png#gh-dark-mode-only">
+  <img height="124" alt="Sigma Logo" src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_light.png#gh-light-mode-only">
+</picture>
 </p>
 </a>
 
