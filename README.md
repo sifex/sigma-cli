@@ -1,6 +1,6 @@
 # Sigma CLI
 
-![Sigma Official](https://svgshare.com/i/oQH.svg)
+![Sigma Official](https://raw.githubusercontent.com/sifex/sifex/master/images/Sigma%20Official%20Badge.svg)
 ![Tests](https://github.com/SigmaHQ/sigma-cli/actions/workflows/test.yml/badge.svg)
 ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/thomaspatzke/0c868df261d4a5d5a1dafe71b1557d69/raw/SigmaHQ-sigma-cli.json)
 ![Status](https://img.shields.io/badge/Status-pre--release-orange)
