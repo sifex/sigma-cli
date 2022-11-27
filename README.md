@@ -1,23 +1,23 @@
 <a href="https://github.com/SigmaHQ/">
-<center>
+<p align="center">
 <img src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_dark.png#gh-dark-mode-only" height="124" alt="">
 <img src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/sigma_logo_light.png#gh-light-mode-only" height="124" alt="">
-</center>
+</p>
 </a>
 
-<center>
+<p align="center">
 <br />
 <img src="https://cdn.jsdelivr.net/gh/sifex/sifex@master/images/Sigma%20Official%20Badge.svg" alt="Sigma Official" />
 <img src="https://github.com/SigmaHQ/sigma-cli/actions/workflows/test.yml/badge.svg" alt="Tests" />
 <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/thomaspatzke/0c868df261d4a5d5a1dafe71b1557d69/raw/SigmaHQ-sigma-cli.json" alt="Coverage Badge" />
 <img src="https://img.shields.io/badge/Status-pre--release-orange" alt="Status" />
-</center>
+</p>
 
 
 <p align="center">
 This is the Sigma command line interface using the <a href="https://github.com/SigmaHQ/pySigma">pySigma</a> library
 <br />
-to manage, list and convert Sigma rules into query languages.
+to manage, list   and convert Sigma rules into query languages.
 </p>
 
 ## Getting Started
