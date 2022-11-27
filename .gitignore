@@ -4,3 +4,5 @@
 cov.xml
 dist/
 docs/_build
+
+.idea/
