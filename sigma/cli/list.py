@@ -1,4 +1,9 @@
+import os
+import pathlib
+
 import click
+from sigma.collection import SigmaCollection
+
 from .backends import backends
 from .pipelines import pipelines, pipeline_resolver
 from sigma.validators import validators
@@ -8,6 +13,25 @@ from textwrap import dedent
 @click.group(name="list", help="List available targets or processing pipelines.")
 def list_group():
     pass
+
+@list_group.command(name="rules", help="List available rules.")
+@click.argument(
+    "rule_path",
+    nargs=-1,
+    required=True,
+    type=click.Path(exists=True, path_type=pathlib.Path),
+)
+def list_rules(rule_path: str):
+    table = PrettyTable()
+    table.field_names = ("Title", "Status", "Level", "Description")
+    sc = SigmaCollection.load_ruleset(rule_path)
+    table.add_rows(list(map(
+        lambda rule: [rule.to_dict().get(k, '') for k in ('title', 'status', 'level', 'description')],
+        sc.rules
+    )))
+    table.align = "l"
+    table.compact_printing = False
+    click.echo(table.get_string())
 
 @list_group.command(name="targets", help="List conversion target query languages.")
 def list_targets():

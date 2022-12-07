@@ -1,13 +1,21 @@
 from typing import Counter
 import pytest
 from click.testing import CliRunner
-from sigma.cli.list import list_pipelines, list_targets, list_formats, list_validators
+from sigma.cli.list import list_pipelines, list_targets, list_formats, list_validators, list_rules
 from sigma.validators import validators
 
 @pytest.fixture(params=[list_targets, list_pipelines], ids=["targets", "pipelines"])
 def cli_list(request):
     cli = CliRunner()
     yield cli.invoke(request.param)
+
+def test_listing_rules():
+    cli = CliRunner()
+    cli_list = cli.invoke(list_rules, ["./files/valid/"])
+    counts = Counter(cli_list.output)
+    assert cli_list.exit_code == 0 \
+        and counts["|"] >= 6 \
+        and counts["-"] >= 40
 
 def test_simple_list(cli_list):
     counts = Counter(cli_list.output)
